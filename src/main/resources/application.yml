@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: testuser
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/sia
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
