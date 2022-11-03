@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = {"com.example.sia.service","com.example.sia.repository"})
+@SpringBootApplication(scanBasePackages = {"com.example.sia.service","com.example.sia.repository","com.example.sia.controller"})
 public class SiaApplication {
 
 	public static void main(String[] args) {

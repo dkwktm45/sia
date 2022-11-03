@@ -1,13 +1,15 @@
+server:
+  port: 8012
 spring:
   datasource:
     username: testuser
     password: 1234
     url: jdbc:postgresql://localhost:5432/sia
-
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: create
-      dialect: org.hibernate.dialect.PostgreSQL10Dialect
+      dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
     properties:
       hibernate:
         format_sql: true
