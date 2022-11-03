@@ -1,6 +1,7 @@
 package com.example.sia.service;
 
 
+import com.example.sia.domain.AreaType;
 import com.example.sia.domain.Region;
 import com.example.sia.dto.RegionDto;
 import com.example.sia.repository.RegionRepository;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 
@@ -20,7 +23,12 @@ public class RegionService {
 		String uuid = UUID.randomUUID().toString().replaceAll("-","");
 		Region region = Region.builder().uuid(uuid).name(regionDto.getName()).areaType(regionDto.getAreaType()).build();
 		region.convertToArea(regionDto.getArea());
-		regionRepository.InsertRegion(region.getName(),region.getAreaType().getCode(),region.getPolygon().toString());
+		regionRepository.InsertRegion(region.getName(),region.getAreaType().getCode(),region.getPolygon().toString(),region.getUuid());
 		return uuid;
+	}
+
+	public List<RegionDto> includeRegion(String uuid) {
+		Set<Region> regions = regionRepository.findByUuidAndAreaType(uuid, AreaType.INTEREAST.getCode());
+		return null;
 	}
 }
